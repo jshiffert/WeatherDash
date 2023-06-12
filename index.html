@@ -14,8 +14,25 @@
         <h1 class="text-center bg-primary bg-gradient text-light p-4" >Weather</h1>
     </div>
     <div class="row grid d-flex" id="main-window">
-        <div class="col-4 h-100 bg-info">left side</div>
-        <div class="col-8 h-25 bg-primary">right side</div>
+        <div class="col-3 h-100 bg-info">
+            <div class="text-center m-2 title">Search for a city:</div>
+            <div class="input-group" id="input-group">
+                <input type="search" class="form-control rounded" placeholder="City" aria-label="Search" aria-describedby="search-addon" id="search-input" />
+                <button type="button" class="btn btn-outline-secondary" id="search-btn">Search</button>
+            </div>
+            <div class="list-group" id="search-history"></div>
+        </div>
+        <div class="col-9">
+            <div class="card m-3">
+                <div class="card-title px-3 py-1 title" id="city-title">placeholder</div>
+                <ul class="list-group">
+                    <li class="list-group-item px-3 border-0" id="today-symbol">Symbol: </li>
+                    <li class="list-group-item px-3 border-0" id="today-temp">Temp: </li>
+                    <li class="list-group-item px-3 border-0" id="today-wind">Wind: </li>
+                    <li class="list-group-item px-3 border-0" id="today-humidity">Humidity: </li>
+                </ul>
+            </div>
+        </div>
     </div>
     
 </body>
