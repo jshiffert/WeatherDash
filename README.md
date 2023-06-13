@@ -1,2 +1,3 @@
 # WeatherDash
-This is the homework for week 6 of the web dev course.
+This is a dashboard that will display the five day weather forecast for any city that is search along with weather icons, temperature, humidity, and wind.
+
