@@ -112,6 +112,22 @@ $(document).ready(function () {
         getApi(searchInput);
     })
 
+    $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+            var searchInput = $('#search-input').val();
+            if (searchInput === "") {
+                return;
+            }
+        
+            searchHistory.unshift(searchInput);
+            $('#search-input').val("");
+        
+            storeHistory();
+            renderSearchHistory();
+            getApi(searchInput);
+        }
+    });
+
     initHistory();
 
     $(document).on('click', '#history-item', function() {
