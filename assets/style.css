@@ -7,3 +7,7 @@ h1 {
     font-size: 25px;
     font-family: 'Jost', sans-serif;
 }
+
+.img-thumbnail {
+    max-width: 25%;
+}

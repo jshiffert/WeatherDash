@@ -53,6 +53,7 @@ $(document).ready(function () {
 
     function run5day(data) {
         var row = $('#row5');
+        row[0].innerHTML = "";
         for (i=7; i<40; i+=8) {
             var day = data.list[i];
             var dayCard = $('<div>');
@@ -65,8 +66,21 @@ $(document).ready(function () {
             var dayIcon = day.weather[0].icon;
             var iconEl = $('<img>');
             var iconUrl = "http://openweathermap.org/img/w/" + dayIcon + ".png";
-            iconEl.attr('src', iconUrl)
+            iconEl.attr('src', iconUrl);
+            iconEl.addClass("img-thumbnail");
             dayCard.append(iconEl);
+            var tempEl = $('<p>');
+            var dayTemp = day.main.temp;
+            tempEl.text('Temp: '+dayTemp+'°F');
+            dayCard.append(tempEl);
+            var windEl = $('<p>');
+            var dayWind = day.wind.speed;
+            windEl.text('Wind: '+dayWind+'mph');
+            dayCard.append(windEl);
+            var humiEl = $('<p>');
+            var dayHumi = day.main.humidity;
+            humiEl.text('Humidity: '+dayHumi+'%');
+            dayCard.append(humiEl);
             row.append(dayCard);
         }
     };
