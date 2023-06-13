@@ -50,6 +50,26 @@ $(document).ready(function () {
         var iconUrl = "http://openweathermap.org/img/w/" + currIcon + ".png";
         $('#wicon').attr('src', iconUrl);
     };
+
+    function run5day(data) {
+        var row = $('#row5');
+        for (i=7; i<40; i+=8) {
+            var day = data.list[i];
+            var dayCard = $('<div>');
+            dayCard.addClass('card col-sm-2 m-3');
+            var dateText = $('<h3>');
+            var dayUnix = day.dt * 1000;
+            var dateObj = new Date(dayUnix).toDateString();
+            dateText.text(dateObj);
+            dayCard.append(dateText);
+            var dayIcon = day.weather[0].icon;
+            var iconEl = $('<img>');
+            var iconUrl = "http://openweathermap.org/img/w/" + dayIcon + ".png";
+            iconEl.attr('src', iconUrl)
+            dayCard.append(iconEl);
+            row.append(dayCard);
+        }
+    };
     
     function getApi(searchInput) {
     
@@ -60,6 +80,7 @@ $(document).ready(function () {
         .then(function (data) {
             console.log(data);
             runWeather(data);
+            run5day(data);
         });
     };
     
